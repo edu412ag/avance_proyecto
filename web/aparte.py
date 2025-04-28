@@ -16,7 +16,7 @@ def create_ec2_instances():
         ImageId='ami-0c55b159cbfafe1f0',  # Amazon Linux 2 AMI - cambia según tu región
         InstanceType='t2.micro',
         MinCount=1,
-        MaxCount=4,
+        MaxCount=2,
         KeyName='eduvockey',  # Pon el nombre de tu Key Pair
         TagSpecifications=[
             {
@@ -56,6 +56,10 @@ def resource_report():
 def list_buckets_and_objects():
     print("\n--- Buckets y Objetos en S3 ---")
     buckets = s3.list_buckets()
+
+
+    import pdb; pdb.set_trace()
+
     for bucket in buckets['Buckets']:
         print(f"Bucket: {bucket['Name']}")
         objects = s3.list_objects_v2(Bucket=bucket['Name'])
