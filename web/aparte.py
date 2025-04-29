@@ -17,7 +17,7 @@ def create_ec2_instances():
         InstanceType='t2.micro',
         MinCount=1,
         MaxCount=2,
-        KeyName='eduvockey',  # Pon el nombre de tu Key Pair
+        KeyName='equipo5avance',  # Pon el nombre de tu Key Pair
         TagSpecifications=[
             {
                 'ResourceType': 'instance',
