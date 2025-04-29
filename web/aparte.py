@@ -17,10 +17,14 @@ def create_ec2_instances():
         InstanceType='t2.micro',
         MinCount=1,
 <<<<<<< HEAD
+<<<<<<< HEAD
         MaxCount=4,
 =======
         MaxCount=2,
 >>>>>>> 059a43d027bd897f58e018e3771547eb73c610b7
+=======
+        MaxCount=2,
+>>>>>>> d4f1e61099461c70cfb8d8e46388834cd33ca7e9
         KeyName='eduvockey',  # Pon el nombre de tu Key Pair
         TagSpecifications=[
             {
@@ -61,9 +65,16 @@ def list_buckets_and_objects():
     print("\n--- Buckets y Objetos en S3 ---")
     buckets = s3.list_buckets()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     import pdb; pdb.set_trace()
 >>>>>>> 059a43d027bd897f58e018e3771547eb73c610b7
+=======
+
+
+    import pdb; pdb.set_trace()
+
+>>>>>>> d4f1e61099461c70cfb8d8e46388834cd33ca7e9
     for bucket in buckets['Buckets']:
         print(f"Bucket: {bucket['Name']}")
         objects = s3.list_objects_v2(Bucket=bucket['Name'])
