@@ -6,9 +6,9 @@ COPY . .
 
 RUN pip install --no-cache-dir -r web/requirements.txt
 
-ENV FLASK_APP=aparte.py
+ENV FLASK_APP=web/aparte.py
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5001
+ENV FLASK_RUN_PORT=5002
 
 EXPOSE 5002
 

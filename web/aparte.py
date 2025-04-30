@@ -1,20 +1,22 @@
 import boto3
 import time
+import json
+from flask import Flask  
 
 REGION = 'us-east-1'
 
 ec2 = boto3.client('ec2', region_name=REGION)
-s3 = boto3.client('s3', region_name=REGION)
+s3 = boto3.client('s3', region_name=REGION)  
 
+app = Flask(__name__)  # Movido al inicio para mejor organización
 
 def create_ec2_instances():
-    print("Creando instancias EC2...")
     response = ec2.run_instances(
-        ImageId='ami-0e449927258d45bc4',  # Amazon Linux 2 AMI - cambia según tu región
+        ImageId='ami-0e449927258d45bc4',
         InstanceType='t2.micro',
         MinCount=1,
         MaxCount=2,
-        KeyName='equipo5avance',  # Pon el nombre de tu Key Pair
+        KeyName='equipo5avance',
         TagSpecifications=[
             {
                 'ResourceType': 'instance',
@@ -23,49 +25,59 @@ def create_ec2_instances():
         ]
     )
     instance_ids = [instance['InstanceId'] for instance in response['Instances']]
-    print(f"Instancias creadas: {instance_ids}")
     return instance_ids
 
 
-def listar_instancias():
-    print("\n--- Lista de Instancias EC2 ---")
-    response = ec2.describe_instances()
-    for reservation in response['Reservations']:
-        for instance in reservation['Instances']:
-            print(f"ID: {instance['InstanceId']}, Estado: {instance['State']['Name']}")
+def list_buckets_and_objects():
+    result = []
+    buckets = s3.list_buckets()
+    for bucket in buckets['Buckets']:
+        bucket_name = bucket['Name']
+        bucket_data = {"nombre": bucket_name, "objetos": []}
+        objects = s3.list_objects_v2(Bucket=bucket_name)
+        if 'Contents' in objects:
+            for obj in objects['Contents']:
+                bucket_data["objetos"].append(obj['Key'])
+        result.append(bucket_data)
+    return result
 
 
 def resource_report():
-    print("\n--- Reporte de Recursos EC2 ---")
+    ec2_info = []
     instances = ec2.describe_instances()
     for reservation in instances['Reservations']:
         for instance in reservation['Instances']:
-            print(f"ID: {instance['InstanceId']}")
-            print(f"Estado: {instance['State']['Name']}")
-            print(f"Tipo: {instance['InstanceType']}")
-            print(f"IP Pública: {instance.get('PublicIpAddress', 'No asignada')}")
-            print("-" * 30)
+            ec2_info.append({
+                "id": instance['InstanceId'],
+                "estado": instance['State']['Name'],
+                "tipo": instance['InstanceType'],
+                "ip_publica": instance.get('PublicIpAddress', 'No asignada')
+            })
+    return ec2_info
 
 
-def list_buckets_and_objects():
-    print("\n--- Buckets y Objetos en S3 ---")
-    buckets = s3.list_buckets()
-    for bucket in buckets['Buckets']:
-        print(f"Bucket: {bucket['Name']}")
-        objects = s3.list_objects_v2(Bucket=bucket['Name'])
-        if 'Contents' in objects:
-            for obj in objects['Contents']:
-                print(f"  - {obj['Key']}")
-        else:
-            print("  (Vacío)")
-        print("-" * 30)
+def listar_instancias():
+    response = ec2.describe_instances()
+    instancias = []
+    for reservation in response['Reservations']:
+        for instance in reservation['Instances']:
+            instancias.append({
+                "id": instance['InstanceId'],
+                "estado": instance['State']['Name']
+            })
+    return instancias
+
+
+@app.route("/")
+def home():
+    resultado = {
+        "instancias_creadas": create_ec2_instances(),
+        "s3_buckets": list_buckets_and_objects(),
+        "reporte_ec2": resource_report(),
+        "lista_instancias": listar_instancias()
+    }
+    return json.dumps(resultado, indent=2)
 
 
 if __name__ == "__main__":
-    instance_ids = create_ec2_instances()
-    print("\nListado de buckets S3:")
-    list_buckets_and_objects()
-    print("\nReporte de Recursos:")
-    resource_report()
-    print("\nLista de instancias:")
-    listar_instancias()
+    app.run(host="0.0.0.0", port=5002)  # Corregido el signo "=" faltante
