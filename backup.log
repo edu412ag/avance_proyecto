@@ -40,3 +40,48 @@ tar: c/Users/LENOVO/OneDrive/Escritorio/archivo correcto mysql: Cannot stat: No 
 tar: Exiting with failure status due to previous errors
 Completed 45 Bytes/45 Bytes (14 Bytes/s) with 1 file(s) remainingupload failed: .\backup_2025-04-29.tar.gz to s3://avance-proyecto/backup_2025-04-29.tar.gz An error occurred (ExpiredToken) when calling the PutObject operation: The provided token has expired.
 Error en la subida del respaldo.
+Iniciando respaldo...
+tar:  c/Users/LENOVO/OneDrive/Escritorio/hola-flask : Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+Completed 45 Bytes/45 Bytes (26 Bytes/s) with 1 file(s) remainingupload failed: .\backup_2025-04-30.tar.gz to s3://avance-proyecto/backup_2025-04-30.tar.gz An error occurred (ExpiredToken) when calling the PutObject operation: The provided token has expired.
+Error en la subida del respaldo.
+Iniciando respaldo...
+tar: Removing leading `/' from member names
+Completed 630 Bytes/630 Bytes (366 Bytes/s) with 1 file(s) remainingupload failed: .\backup_2025-04-30.tar.gz to s3://avance-proyecto/backup_2025-04-30.tar.gz An error occurred (InvalidToken) when calling the PutObject operation: The provided token is malformed or otherwise invalid.
+Error en la subida del respaldo.
+Iniciando respaldo...
+tar: c/Users/LENOVO/OneDrive/Escritorio/hola-flask: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+upload failed: .\backup_2025-04-30.tar.gz to s3://avance-proyecto/backup_2025-04-30.tar.gz Unable to locate credentials
+Error en la subida del respaldo.
+Iniciando respaldo...
+tar: c/Users/LENOVO/OneDrive/Escritorio/hola-flask: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+Completed 45 Bytes/45 Bytes (17 Bytes/s) with 1 file(s) remainingupload: .\backup_2025-04-30.tar.gz to s3://avance-proyecto/backup_2025-04-30.tar.gz
+Respaldo subido exitosamente.
+Iniciando respaldo...
+tar: c/Users/LENOVO/OneDrive/Escritorio/hola-flask: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+Traceback (most recent call last):
+  File "PyInstaller\hooks\rthooks\pyi_rth_multiprocessing.py", line 54, in <module>
+  File "PyInstaller\hooks\rthooks\pyi_rth_multiprocessing.py", line 16, in _pyi_rthook
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "multiprocessing\__init__.py", line 16, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "multiprocessing\context.py", line 6, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "multiprocessing\reduction.py", line 16, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 946, in _load_unlocked
+KeyboardInterrupt
+[PYI-11268:ERROR] Failed to execute script 'pyi_rth_multiprocessing' due to unhandled exception!

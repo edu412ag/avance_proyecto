@@ -2,15 +2,14 @@ FROM python:3.9-slim
 
 WORKDIR /web
 
-COPY . /web/
-
+COPY . .
 
 RUN pip install --no-cache-dir -r web/requirements.txt
 
+ENV FLASK_APP=aparte.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5001
 
-EXPOSE 5001
+EXPOSE 5002
 
-
-
-
-CMD ["python", "web/aparte.py"]
+CMD ["flask", "run"]
