@@ -1,0 +1,42 @@
+Iniciando respaldo...
+tar: Removing leading `/' from member names
+Traceback (most recent call last):
+  File "aws.py", line 19, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "awscli\clidriver.py", line 52, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "awscli\autoprompt\core.py", line 17, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "awscli\autoprompt\prompttoolkit.py", line 24, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "awscli\autoprompt\doc.py", line 15, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "docutils\core.py", line 23, in <module>
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 384, in exec_module
+  File "docutils\utils\__init__.py", line 17, in <module>
+KeyboardInterrupt
+[PYI-13036:ERROR] Failed to execute script 'aws' due to unhandled exception!
+Error en la subida del respaldo.
+Iniciando respaldo...
+tar: c/Users/LENOVO/OneDrive/Escritorio/archivo correcto mysql: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+Completed 45 Bytes/45 Bytes (14 Bytes/s) with 1 file(s) remainingupload failed: .\backup_2025-04-29.tar.gz to s3://avance-proyecto/backup_2025-04-29.tar.gz An error occurred (ExpiredToken) when calling the PutObject operation: The provided token has expired.
+Error en la subida del respaldo.

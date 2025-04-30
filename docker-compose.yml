@@ -5,7 +5,7 @@ services:
     build: .
     ports:
       - "5001:5001"
-    volume: 
+    volumes: 
       - .:/web
     environment:
       - FLASK_APP=web/aparte.py

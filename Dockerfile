@@ -13,4 +13,4 @@ EXPOSE 5001
 
 
 
-CMD ["flask", "run"]
+CMD ["python", "web/aparte.py"]
