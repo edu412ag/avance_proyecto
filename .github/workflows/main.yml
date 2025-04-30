@@ -16,7 +16,10 @@ jobs:
           
           aws_default_region: us-east-1
 
+
           aws_elb_app_port: 5002 
+
+
 
 
           aws_ec2_instance_type: t2.micro
