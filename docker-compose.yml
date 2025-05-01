@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5002:5002"
+    volumes: 
+      - .:/web
+    environment:
+      - FLASK_APP=web/aparte.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5002
+    restart: always
